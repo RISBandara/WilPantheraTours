@@ -1,0 +1,26 @@
+rb-tours-website/
+├── index.html
+├── images/
+│   ├── about-wilpattu.jpg
+│   ├── airport-transfer.jpg
+│   ├── bird.jpg
+│   ├── elephant.jpg
+│   ├── hotel-booking.jpg
+│   ├── hotel-transfer.jpg
+│   ├── jeep-safari.jpg
+│   ├── jeep-safari-gallery.jpg
+│   ├── leopard.jpg
+│   ├── monkey.jpg
+│   ├── mugger-crocodile.jpg
+│   ├── multi-day-safari.jpg
+│   ├── peacock.jpg
+│   ├── sloth-bear.jpg
+│   ├── spotted-deer.jpg
+│   ├── testimonial1.jpg
+│   ├── testimonial2.jpg
+│   ├── testimonial3.jpg
+│   ├── toyota-hilux.jpg
+│   ├── toyota-premio.jpg
+│   ├── toyota-townace.jpg
+│   └── wilpattu-banner.jpg
+└── thank-you.html (optional)
