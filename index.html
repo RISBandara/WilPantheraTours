@@ -365,7 +365,7 @@
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-clock text-primary me-2"></i>Morning/Afternoon slots</li>
                                 <li><i class="fas fa-users text-primary me-2"></i>Up to 6 passengers</li>
-                                <li><i class="fas fa-binoculars text-primary me-2"></i>Binoculars provided</li>
+                                <li><i class="fas fa-coffee text-primary me-2"></i>Provide drinking water</li>
                             </ul>
                         </div>
                     </div>
@@ -608,97 +608,133 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-5 bg-light" id="contact">
-        <div class="container">
-            <h2 class="section-title text-center">Contact Us</h2>
-            <p class="text-center mb-5">Ready to book your Wilpattu adventure or have questions? Get in touch!</p>
-            
-            <div class="row">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="card border-0 shadow">
-                        <div class="card-body p-5">
-                            <h4 class="mb-4">Send us a message</h4>
-                            <form id="contactForm" action="https://formsubmit.co/ishantha.sliit@gmail.com" method="POST">
-                                <!-- FormSubmit Configuration -->
-                                <input type="hidden" name="_subject" value="New Booking Inquiry - RB Tours">
-                                <input type="hidden" name="_autoresponse" value="Thank you for contacting RB Tours! We've received your message and will get back to you within 24 hours. Here's what you submitted:">
-                                <input type="hidden" name="_template" value="table">
-                                <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-                                <input type="hidden" name="_captcha" value="false">
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                    </div>
+   <!-- Contact Section -->
+<section class="py-5 bg-light" id="contact">
+    <div class="container">
+        <h2 class="section-title text-center">Contact Us</h2>
+        <p class="text-center mb-5">Ready to book your Wilpattu adventure or have questions? Get in touch!</p>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h4 class="mb-4">Booking Form</h4>
+                        <form id="contactForm" action="https://formsubmit.co/ishantha.sliit@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="New Booking Inquiry - RB Tours">
+                            <input type="hidden" name="_autoresponse" value="Thank you for contacting RB Tours! We've received your booking request and will get back to you within 24 hours. Here's what you submitted:">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Your Name*</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address*</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Subject</label>
-                                    <select class="form-select" id="subject" name="subject" required>
-                                        <option value="" selected disabled>Select a subject</option>
-                                        <option value="Safari Booking">Safari Booking</option>
-                                        <option value="Hotel Transfer">Hotel Transfer</option>
-                                        <option value="Airport Transfer">Airport Transfer</option>
-                                        <option value="Hotel Booking">Hotel Booking</option>
-                                        <option value="Custom Tour">Custom Tour</option>
-                                        <option value="General Inquiry">General Inquiry</option>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number*</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Safari Date*</label>
+                                <input type="date" class="form-control" id="date" name="date" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pickup" class="form-label">Pickup Location*</label>
+                                <input type="text" class="form-control" id="pickup" name="pickup_location" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dropoff" class="form-label">Dropoff Location*</label>
+                                <input type="text" class="form-control" id="dropoff" name="dropoff_location" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="people" class="form-label">Number of People*</label>
+                                    <select class="form-select" id="people" name="number_of_people" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7+">7+ (Group)</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Your Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                                <div class="col-md-6 mb-3">
+                                    <label for="vehicle" class="form-label">Vehicle Type*</label>
+                                    <select class="form-select" id="vehicle" name="vehicle_type" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="Toyota Hilux Safari Jeep">Toyota Hilux Safari Jeep</option>
+                                        <option value="Toyota Townace Van">Toyota Townace Van</option>
+                                        <option value="Toyota Premio Sedan">Toyota Premio Sedan</option>
+                                        <option value="Not sure - need advice">Not sure - need advice</option>
+                                    </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
-                                    <span id="submitText">Send Message</span>
-                                    <span class="spinner-border spinner-border-sm" id="submitSpinner" role="status" aria-hidden="true"></span>
-                                </button>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Additional Requirements</label>
+                                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                <span id="submitText">Book Now</span>
+                                <span class="spinner-border spinner-border-sm" id="submitSpinner" role="status" aria-hidden="true"></span>
+                            </button>
+                        </form>
                     </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow h-100">
-                        <div class="card-body p-5">
-                            <h4 class="mb-4">Contact Information</h4>
-                            <div class="contact-info mb-4">
-                                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Wilpattu Road, Hunuwilagama, Sri Lanka</p>
-                                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ishantha.sliit@gmail.com</p>
-                                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +94 78 999 0992</p>
-                                <p><i class="fas fa-clock"></i> <strong>Operating Hours:</strong> 24/7 for safari bookings and transfers</p>
-                            </div>
-                            
-                            <h5 class="mb-3">Why Choose RB Tours?</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certified safari guides with 10+ years experience</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Well-maintained, comfortable vehicles</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 98% leopard sighting success rate</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Flexible cancellation policy</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Competitive pricing with no hidden fees</li>
-                            </ul>
-                            
-                            <div class="social-icons mt-4">
-                                <h5 class="mb-3">Follow Us</h5>
-                                <a href="#" class="text-decoration-none"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="text-decoration-none"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="text-decoration-none"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-decoration-none"><i class="fab fa-tripadvisor"></i></a>
-                            </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body p-5">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="contact-info mb-4">
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Wilpattu Road, Hunuwilagama, Sri Lanka</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ishantha.sliit@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +94 78 999 0992</p>
+                            <p><i class="fas fa-clock"></i> <strong>Operating Hours:</strong> 24/7 for safari bookings and transfers</p>
+                        </div>
+                        
+                        <h5 class="mb-3">Why Choose RB Tours?</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certified safari guides with 10+ years experience</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Well-maintained, comfortable vehicles</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 98% leopard sighting success rate</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Flexible cancellation policy</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Competitive pricing with no hidden fees</li>
+                        </ul>
+                        
+                        <div class="social-icons mt-4">
+                            <h5 class="mb-3">Follow Us</h5>
+                            <a href="#" class="text-decoration-none"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-decoration-none"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-decoration-none"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-decoration-none"><i class="fab fa-tripadvisor"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- Success Alert -->
+<div class="alert alert-success alert-dismissible fade show" role="alert" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 90%; max-width: 600px;">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-check-circle me-2"></i>
+        <div>
+            <strong>Thank you!</strong> Your booking request has been sent successfully. We'll contact you soon to confirm your safari.
+        </div>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -751,88 +787,67 @@
     
     <!-- Form Submission Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const successAlert = document.querySelector('.alert-success');
-            const newsletterForm = document.getElementById('newsletterForm');
+         document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitSpinner = document.getElementById('submitSpinner');
+        const successAlert = document.querySelector('.alert-success');
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            // Check if there's a success message in the URL (for FormSubmit redirect)
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('success') === 'true') {
-                showSuccessMessage();
+            // Validate form
+            if (!contactForm.checkValidity()) {
+                contactForm.classList.add('was-validated');
+                return;
             }
             
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Validate form
-                if (!contactForm.checkValidity()) {
-                    contactForm.classList.add('was-validated');
-                    return;
-                }
-                
-                // Show loading state
-                submitText.textContent = 'Sending...';
-                submitSpinner.style.display = 'inline-block';
-                submitBtn.disabled = true;
-                
-                try {
-                    // Submit form to FormSubmit
-                    const formData = new FormData(contactForm);
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
-                        // Show success message
-                        showSuccessMessage();
-                        
-                        // Reset form
-                        contactForm.reset();
-                        contactForm.classList.remove('was-validated');
-                        
-                        // Scroll to top to show the success message
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        throw new Error('Form submission failed');
+            // Show loading state
+            submitText.textContent = 'Processing...';
+            submitSpinner.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            try {
+                // Submit form to FormSubmit
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
                     }
-                } catch (error) {
-                    alert('There was an error sending your message. Please try again later or contact us directly at ishantha.sliit@gmail.com');
-                    console.error('Error:', error);
-                } finally {
-                    // Reset button state
-                    submitText.textContent = 'Send Message';
-                    submitSpinner.style.display = 'none';
-                    submitBtn.disabled = false;
-                }
-            });
-            
-            // Newsletter form submission
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const emailInput = newsletterForm.querySelector('input[type="email"]');
-                    alert(`Thank you for subscribing with ${emailInput.value}! You'll receive our updates soon.`);
-                    newsletterForm.reset();
                 });
-            }
-            
-            function showSuccessMessage() {
-                successAlert.style.display = 'block';
                 
-                // Hide after 5 seconds
-                setTimeout(() => {
-                    successAlert.style.display = 'none';
-                }, 5000);
+                if (response.ok) {
+                    // Show success message
+                    successAlert.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    contactForm.classList.remove('was-validated');
+                    
+                    // Scroll to top to show the success message
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successAlert.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('There was an error sending your booking request. Please try again later or contact us directly at ishantha.sliit@gmail.com');
+                console.error('Error:', error);
+            } finally {
+                // Reset button state
+                submitText.textContent = 'Book Now';
+                submitSpinner.style.display = 'none';
+                submitBtn.disabled = false;
             }
         });
+    });
     </script>
 </body>
 </html>
