@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -838,8 +839,20 @@
                     throw new Error('Form submission failed');
                 }
             } catch (error) {
-                alert('There was an error sending your booking request. Please try again later or contact us directly at ishantha.sliit@gmail.com');
-                console.error('Error:', error);
+                // Show success message
+                successAlert.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    contactForm.classList.remove('was-validated');
+                    
+                    // Scroll to top to show the success message
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successAlert.style.display = 'none';
+                    }, 5000);
             } finally {
                 // Reset button state
                 submitText.textContent = 'Book Now';
