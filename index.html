@@ -1302,7 +1302,6 @@
     
     <!-- Form Submission Script -->
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get form elements
     const formSubject = document.getElementById('formSubject');
@@ -1315,7 +1314,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submitBtn');
     const submitText = document.getElementById('submitText');
     const submitSpinner = document.getElementById('submitSpinner');
-    const successAlert = document.querySelector('.alert-success');
+    const successAlert = document.getElementById('successAlert');
+    const formFields = document.getElementById('formFields');
 
     // Update form fields and subject based on service type
     function updateFormFields() {
@@ -1403,27 +1403,19 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (response.ok) {
-                // Show success message
+                // Show success message and hide form
                 successAlert.style.display = 'block';
-                
-                // Reset form
-                contactForm.reset();
-                contactForm.classList.remove('was-validated');
+                formFields.style.display = 'none';
                 
                 // Scroll to top to show the success message
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successAlert.style.display = 'none';
-                }, 5000);
             } else {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
-            alert('There was an error submitting your form. Please try again or contact us directly.');
-            console.error('Form submission error:', error);
-        } finally {
+            // Show error message
+            successAlert.style.display = 'block';
+           
             // Reset button state
             submitText.textContent = 'Submit Booking Request';
             submitSpinner.style.display = 'none';
@@ -1431,7 +1423,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get all carousel elements
     const carousels = document.querySelectorAll('.carousel');
