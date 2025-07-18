@@ -1587,83 +1587,84 @@
             });
         });
         
-        // Carousel initialization code remains the same
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all carousel elements
-            const carousels = document.querySelectorAll('.carousel');
-            
-            // Set interval for auto sliding (4 seconds)
-            const interval = 3000;
-            
-            // Initialize each carousel
-            carousels.forEach(carousel => {
-                const carouselInstance = new bootstrap.Carousel(carousel, {
-                    interval: false, // Disable auto sliding by default
-                    wrap: true
-                });
-                
-                let slideInterval;
-                
-                // Start auto sliding on mouse enter
-                carousel.addEventListener('mouseenter', function() {
-                    slideInterval = setInterval(() => {
-                        carouselInstance.next();
-                    }, interval);
-                });
-                
-                // Stop auto sliding on mouse leave
-                carousel.addEventListener('mouseleave', function() {
-                    clearInterval(slideInterval);
-                });
-                
-                // Stop auto sliding on click
-                carousel.addEventListener('click', function() {
-                    clearInterval(slideInterval);
-                });
-            });
-        });
-    document.addEventListener('DOMContentLoaded', function() {   
-    const carousel = document.getElementById('hiluxSlider');
-    if (!carousel) return;
+    // General carousel initialization for all carousels except hiluxSlider
+    const carousels = document.querySelectorAll('.carousel:not(#hiluxSlider)');
+    const interval = 3000;
     
-    // Set total slides (this should always happen)
-    const totalSlides = carousel.querySelectorAll('.carousel-item').length;
-    carousel.querySelector('.total-slides').textContent = totalSlides;
-    
-    // Check if we're in mobile view (you can adjust the breakpoint as needed)
-    const isMobile = window.matchMedia('(max-width: 992px)').matches;
-    
-    if (isMobile) {
-        // Initialize carousel only for mobile
-        const myCarousel = new bootstrap.Carousel(carousel, {
+    carousels.forEach(carousel => {
+        const carouselInstance = new bootstrap.Carousel(carousel, {
             interval: false,
             wrap: true
         });
         
-        // Update on slide
-        carousel.addEventListener('slid.bs.carousel', function() {
+        let slideInterval;
+        
+        carousel.addEventListener('mouseenter', function() {
+            slideInterval = setInterval(() => {
+                carouselInstance.next();
+            }, interval);
+        });
+        
+        carousel.addEventListener('mouseleave', function() {
+            clearInterval(slideInterval);
+        });
+        
+        carousel.addEventListener('click', function() {
+            clearInterval(slideInterval);
+        });
+    });
+
+    // Special handling for hiluxSlider (never auto-slides)
+    const hiluxCarousel = document.getElementById('hiluxSlider');
+    if (!hiluxCarousel) return;
+    
+    // Set total slides
+    const totalSlides = hiluxCarousel.querySelectorAll('.carousel-item').length;
+    hiluxCarousel.querySelector('.total-slides').textContent = totalSlides;
+    
+    // Check if we're in mobile view
+    const isMobile = window.matchMedia('(max-width: 992px)').matches;
+    
+    if (isMobile) {
+        // Initialize with NO auto-sliding
+        const myCarousel = new bootstrap.Carousel(hiluxCarousel, {
+            interval: false,  // Disables auto-cycling completely
+            wrap: true       // Allows manual looping
+        });
+        
+        // Update current slide counter
+        hiluxCarousel.addEventListener('slid.bs.carousel', function() {
             const activeIndex = [...this.querySelectorAll('.carousel-item')]
                 .findIndex(item => item.classList.contains('active'));
             this.querySelector('.current-slide').textContent = activeIndex + 1;
         });
     } else {
-        // For desktop, show the first slide and disable carousel functionality
-        const items = carousel.querySelectorAll('.carousel-item');
+        // Desktop behavior - show first slide only
+        const items = hiluxCarousel.querySelectorAll('.carousel-item');
         items.forEach((item, index) => {
             item.classList.remove('active');
             if (index === 0) item.classList.add('active');
         });
-        carousel.querySelector('.current-slide').textContent = '1';
-        
-        // Hide carousel controls in desktop
-        const controls = carousel.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+        hiluxCarousel.querySelector('.current-slide').textContent = '1';
+         // Update current slide counter on every slide change
+       
+        // Hide controls in desktop
+        const controls = hiluxCarousel.querySelectorAll('.carousel-control-prev, .carousel-control-next');
         controls.forEach(control => control.style.display = 'none');
         
         // Hide indicators if they exist
-        const indicators = carousel.querySelector('.carousel-indicators');
+        const indicators = hiluxCarousel.querySelector('.carousel-indicators');
         if (indicators) indicators.style.display = 'none';
+
+        hiluxCarousel.addEventListener('slid.bs.carousel', function() {
+            const activeIndex = [...this.querySelectorAll('.carousel-item')]
+                .findIndex(item => item.classList.contains('active'));
+            this.querySelector('.current-slide').textContent = activeIndex + 1;
+        });
     }
 });
+
         </script>
 </body>
 </html>
