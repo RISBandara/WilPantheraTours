@@ -1052,7 +1052,6 @@
                             <input type="hidden" name="_subject" id="formSubject" value="New Jeep Safari Booking - RB Tours">
                             <input type="hidden" name="_autoresponse" value="Thank you for contacting RB Tours! We've received your booking request and will get back to you within 24 hours.">
                             <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
                             <input type="hidden" name="_captcha" value="false">
                             
                             <!-- Service Type Selection -->
@@ -1404,8 +1403,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (response.ok) {
                 // Show success message and hide form
-                successAlert.style.display = 'block';
-                formFields.style.display = 'none';
+            successAlert.style.display = 'block';
+           
+           // Reset button state
+           submitText.textContent = 'Submit Booking Request';
+           submitSpinner.style.display = 'none';
+           submitBtn.disabled = false;
                 
                 // Scroll to top to show the success message
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1420,6 +1423,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitText.textContent = 'Submit Booking Request';
             submitSpinner.style.display = 'none';
             submitBtn.disabled = false;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 });
