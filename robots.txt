@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/
+Sitemap: https://wilpantheratours.vercel.app/sitemap.xml
