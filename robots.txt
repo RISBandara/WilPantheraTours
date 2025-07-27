@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://wilpantheratours.vercel.app/sitemap.xml
