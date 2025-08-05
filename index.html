@@ -3606,188 +3606,211 @@
 <!-- html2pdf.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-   
-   document.addEventListener('DOMContentLoaded', function() {
-            // Get elements
-            const formSubject = document.getElementById('formSubject');
-            const nameInput = document.getElementById('name');
-            const serviceOptions = document.querySelectorAll('.service-option');
-            const safariFields = document.getElementById('safariFields');
-            const transportFields = document.getElementById('transportFields');
-            const hotelFields = document.getElementById('hotelFields');
-            const contactForm = document.getElementById('contactForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const successAlert = document.getElementById('successAlert');
-            const closeAlert = document.getElementById('closeAlert');
+ 
+ document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const form = document.getElementById('contactForm');
+    const serviceOptions = document.querySelectorAll('.service-option');
+    const nameInput = document.getElementById('name');
+    const formSubject = document.getElementById('formSubject');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const successAlert = document.getElementById('successAlert');
+    const closeAlert = document.getElementById('closeAlert');
+
+    // Service fields sections
+    const serviceSections = {
+        jeep: document.getElementById('safariFields'),
+        transport: document.getElementById('transportFields'),
+        hotel: document.getElementById('hotelFields')
+    };
+
+    // Initialize form
+    function initForm() {
+        // Set today's date for all date fields
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('safariDate').value = today;
+        document.getElementById('transportDate').value = today;
+        document.getElementById('checkInDate').value = today;
+        
+        // Set min dates to today
+        document.querySelectorAll('input[type="date"]').forEach(dateInput => {
+            dateInput.min = today;
+        });
+        
+        // Set default time for transport
+        const now = new Date();
+        document.getElementById('transportTime').value = 
+            `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        
+        // Initialize check-out date
+        const checkInDate = document.getElementById('checkInDate');
+        const checkOutDate = document.getElementById('checkOutDate');
+        checkOutDate.min = checkInDate.value;
+        
+        checkInDate.addEventListener('change', function() {
+            checkOutDate.min = this.value;
+            if (checkOutDate.value < this.value) {
+                checkOutDate.value = this.value;
+            }
+        });
+        
+        // Set initial service
+        setActiveService('jeep');
+    }
+
+    // Set active service
+    function setActiveService(service) {
+        // Update UI
+        serviceOptions.forEach(option => {
+            option.classList.toggle('selected', option.dataset.service === service);
+        });
+        
+        // Show/hide sections
+        Object.entries(serviceSections).forEach(([key, section]) => {
+            section.style.display = key === service ? 'block' : 'none';
             
-            // Service selection
-            serviceOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Remove selected class from all options
-                    serviceOptions.forEach(opt => opt.classList.remove('selected'));
-                    
-                    // Add selected class to clicked option
-                    this.classList.add('selected');
-                    
-                    // Update form fields
-                    updateFormFields();
+            // Remove 'required' from hidden fields to prevent validation issues
+            if (key !== service) {
+                section.querySelectorAll('[required]').forEach(field => {
+                    field.removeAttribute('required');
                 });
-            });
-            
-            // Update form fields and subject based on service type
-            function updateFormFields() {
-                const selectedOption = document.querySelector('.service-option.selected');
-                if (!selectedOption) return;
-                
-                const selectedService = selectedOption.dataset.service;
-                const customerName = nameInput.value.trim() || 'Customer';
-                
-                // Hide all fields first
-                safariFields.style.display = 'none';
-                transportFields.style.display = 'none';
-                hotelFields.style.display = 'none';
-                
-                // Show relevant fields and update subject
-                if (selectedService === 'jeep') {
-                    safariFields.style.display = 'block';
-                    formSubject.value = `New Jeep Safari Booking from ${customerName} - WilPanthera Tours`;
-                } else if (selectedService === 'transport') {
-                    transportFields.style.display = 'block';
-                    formSubject.value = `New Transport Booking from ${customerName} - WilPanthera Tours`;
-                } else if (selectedService === 'hotel') {
-                    hotelFields.style.display = 'block';
-                    formSubject.value = `New Hotel Booking from ${customerName} - WilPanthera Tours`;
-                }
-                
-                // Set min dates to today
-                const today = new Date().toISOString().split('T')[0];
-                document.getElementById('safariDate').min = today;
-                document.getElementById('transportDate').min = today;
-                document.getElementById('checkInDate').min = today;
-                
-                // Set check-out date to be after check-in date
-                const checkInDate = document.getElementById('checkInDate');
-                const checkOutDate = document.getElementById('checkOutDate');
-                
-                checkInDate.addEventListener('change', function() {
-                    checkOutDate.min = this.value;
-                    if (checkOutDate.value && checkOutDate.value < this.value) {
-                        checkOutDate.value = this.value;
+            } else {
+                // Add 'required' to visible fields
+                section.querySelectorAll('input,select').forEach(field => {
+                    if (field.hasAttribute('data-required')) {
+                        field.setAttribute('required', '');
                     }
                 });
             }
+        });
+        
+        updateFormSubject();
+    }
+
+    // Service selection handler
+    function handleServiceSelection() {
+        serviceOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                setActiveService(this.dataset.service);
+            });
+        });
+    }
+
+    // Update form subject
+    function updateFormSubject() {
+        const selectedService = document.querySelector('.service-option.selected').dataset.service;
+        const customerName = nameInput.value.trim() || 'Customer';
+        
+        const subjects = {
+            jeep: `New Jeep Safari Booking from ${customerName} - WilPanthera Tours`,
+            transport: `New Transport Booking from ${customerName} - WilPanthera Tours`,
+            hotel: `New Hotel Booking from ${customerName} - WilPanthera Tours`
+        };
+        
+        formSubject.value = subjects[selectedService];
+    }
+
+    // Form validation
+    function validateForm() {
+        let isValid = true;
+        
+        // Basic fields validation (always required)
+        const basicFields = [
+            document.getElementById('name'),
+            document.getElementById('email'),
+            document.getElementById('phone')
+        ];
+        
+        basicFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = '#ff4444';
+                isValid = false;
+            } else {
+                field.style.borderColor = '';
+            }
+        });
+        
+        // Validate visible service section
+        const activeSection = serviceSections[document.querySelector('.service-option.selected').dataset.service];
+        const requiredFields = activeSection.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = '#ff4444';
+                isValid = false;
+            } else {
+                field.style.borderColor = '';
+            }
+        });
+        
+        return isValid;
+    }
+
+    // Form submission
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        // Prepare loading state
+        submitText.textContent = 'Processing...';
+        submitSpinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(form);
+            const selectedService = document.querySelector('.service-option.selected').dataset.service;
+            formData.append('service_type', selectedService);
             
-            // Update subject when name changes
-            nameInput.addEventListener('input', updateFormFields);
-            
-            // Initialize form fields
-            updateFormFields();
-            
-            // Form submission handling
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Get the selected service
-                const selectedOption = document.querySelector('.service-option.selected');
-                if (!selectedOption) {
-                    alert('Please select a service type');
-                    return;
-                }
-                
-                // Validate only visible required fields
-                const visibleFields = contactForm.querySelectorAll('.service-fields[style*="block"] [required]');
-                let isValid = true;
-                
-                visibleFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = '#e74c3c';
-                    } else {
-                        field.style.borderColor = '#ddd';
-                    }
-                });
-                
-                if (!isValid) {
-                    alert('Please fill in all required fields');
-                    return;
-                }
-                
-                // Show loading state
-                submitText.textContent = 'Processing...';
-                submitSpinner.style.display = 'inline-block';
-                submitBtn.disabled = true;
-                
-                try {
-                    // Create a FormData object from the form
-                    const formData = new FormData(contactForm);
-                    
-                    // Add service type to form data
-                    formData.append('service_type', selectedOption.dataset.service);
-                    
-                    // Log form data for debugging
-                    console.log('Submitting form with:', Object.fromEntries(formData.entries()));
-                    
-                    // Send the form data to FormSubmit
-                    const response = await fetch('https://formsubmit.co/ajax/wilpantheratours@gmail.com', {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json'
-                        },
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    console.log('Submission result:', result);
-                    
-                    if (response.ok && result.success) {
-                        // Show success message
-                        successAlert.classList.add('show');
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Reset service selection to default (Jeep Safari)
-                        serviceOptions.forEach(opt => opt.classList.remove('selected'));
-                        serviceOptions[0].classList.add('selected');
-                        updateFormFields();
-                        
-                        // Hide success message after 5 seconds
-                        setTimeout(() => {
-                            successAlert.classList.remove('show');
-                        }, 5000);
-                    } else {
-                        throw new Error(result.message || 'Form submission failed');
-                    }
-                } catch (error) {
-                    console.error('Submission error:', error);
-                    alert('There was an error submitting your form. Please try again.');
-                } finally {
-                    // Reset button state
-                    submitText.textContent = 'Submit Booking Request';
-                    submitSpinner.style.display = 'none';
-                    submitBtn.disabled = false;
-                }
+            const response = await fetch('https://formsubmit.co/ajax/wilpantheratours@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData
             });
             
-            // Close alert
-            closeAlert.addEventListener('click', function() {
-                successAlert.classList.remove('show');
-            });
+            const result = await response.json();
             
-            // Set today's date as default for date fields
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('safariDate').value = today;
-            document.getElementById('transportDate').value = today;
-            document.getElementById('checkInDate').value = today;
-            
-            // Set default time for transport
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            document.getElementById('transportTime').value = `${hours}:${minutes}`;
-        }); 
+            if (response.ok && result.success) {
+                successAlert.style.display = 'block';
+                form.reset();
+                setActiveService('jeep');
+                
+                setTimeout(() => {
+                    successAlert.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error(result.message || 'Submission failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error submitting form. Please try again.');
+        } finally {
+            submitText.textContent = 'Submit Booking Request';
+            submitSpinner.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    }
+
+    // Event listeners
+    nameInput.addEventListener('input', updateFormSubject);
+    form.addEventListener('submit', handleSubmit);
+    
+    if (closeAlert) {
+        closeAlert.addEventListener('click', () => {
+            successAlert.style.display = 'none';
+        });
+    }
+
+    // Initialize
+    initForm();
+    handleServiceSelection();
+});
+ 
 document.addEventListener('DOMContentLoaded', function() {
             // Set current date
             const today = new Date();
