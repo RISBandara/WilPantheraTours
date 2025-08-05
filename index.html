@@ -239,18 +239,7 @@
             margin-bottom: 15px;
         }
         
-        /* Success message */
-        .alert-success {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            animation: fadeIn 0.5s;
-            width: 90%;
-            max-width: 600px;
-        }
+    
         
         @keyframes fadeIn {
             from { opacity: 0; top: 0; }
@@ -1872,7 +1861,7 @@
             gap: 15px;
             transform: translateX(120%);
             transition: transform 0.4s ease;
-            z-index: 1000;
+            z-index: 1000000;
         }
 
         .alert-success.show {
@@ -3639,6 +3628,7 @@
                     
                     if (result.success) {
                         // Show success message
+                        scrollToHeader();
                         successAlert.classList.add('show');
                         
                         // Reset form
@@ -3651,7 +3641,7 @@
                         
                         // Hide success message after 5 seconds
                         setTimeout(() => {
-                            successAlert.classList.remove('show');
+                            //successAlert.classList.remove('show');
                         }, 5000);
                     } else {
                         throw new Error('Form submission failed');
@@ -3669,6 +3659,7 @@
             
             // Close alert
             closeAlert.addEventListener('click', function() {
+                scrollToHeader();
                 successAlert.classList.remove('show');
             });
         });
