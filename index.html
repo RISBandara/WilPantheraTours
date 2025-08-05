@@ -1845,16 +1845,13 @@
             border-left: 4px solid var(--primary);
             border-radius: 8px;
             box-shadow: var(--shadow);
-            display: flex;
+            display: none;
             align-items: center;
             gap: 15px;
-            transform: translateX(120%);
+            transform:translate(80px,40px);
+            animation:2s ;
             transition: transform 0.4s ease;
-            z-index: 1000000;
-        }
-
-        .alert-success.show {
-            transform: translateX(0);
+            z-index: 10000;
         }
 
         .alert-icon {
@@ -1978,6 +1975,19 @@
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
+     <!-- Success message -->
+    <div class="alert-success" id="successAlert">
+        <div class="alert-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="alert-text">
+            <h4>Booking Request Submitted!</h4>
+            <p>We'll contact you shortly to confirm details.</p>
+        </div>
+        <button class="close-alert" id="closeAlert">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
     <!-- About Section -->
     <section class="py-5">
@@ -3260,20 +3270,6 @@
             <p class="tagline">Experience the wild beauty of Wilpattu National Park with Sri Lanka's premier safari experts</p>
         </div>
     </header>
-    
-    <div class="alert-success" id="successAlert">
-        <div class="alert-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        <div class="alert-text">
-            <h4>Booking Request Submitted!</h4>
-            <p>We'll contact you shortly to confirm details.</p>
-        </div>
-        <button class="close-alert" id="closeAlert">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-
     <div class="contact-container">
         <div class="form-card">
             <div class="form-header">
@@ -3776,12 +3772,13 @@
             const result = await response.json();
             
             if (response.ok && result.success) {
-                successAlert.style.display = 'block';
+                scrollToHeader();
+                successAlert.style.display = 'flex';
                 form.reset();
                 setActiveService('jeep');
                 
                 setTimeout(() => {
-                    scrollToHeader();
+                   
                     successAlert.style.display = 'none';
                 }, 5000);
             } else {
