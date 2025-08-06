@@ -323,6 +323,9 @@
 .table th {
   font-weight: 600;
 }
+.currency-btn{
+    display: ruby !important;
+}
 .currency-btn.active {
   background-color: #3498db;
   color: white;
@@ -1891,7 +1894,607 @@
             padding: 5px;
             margin-left: 15px;
         }
+        /*new section*/
+
+    
         
+        :root {
+            --primary: #2c6e49;
+            --primary-dark: #1d4e32;
+            --accent: #f4a261;
+            --accent-dark: #e76f51;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --medium: #6c757d;
+            --border: #dee2e6;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --gold: #d4af37;
+            --silver: #c0c0c0;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f4ea 0%, #d8f0e3 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+       
+       
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 10px;
+            font-weight: 300;
+        }
+        
+       
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-header i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+        
+        .card-header h2 {
+            font-weight: 600;
+            font-size: 1.7rem;
+            margin: 0;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .form-section {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
+        }
+        
+        .form-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(44, 110, 73, 0.1);
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+
+        .exchange-rate {
+            background: var(--light);
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .exchange-rate div {
+            display: inline-grid;
+            font-size: 14px;
+        }
+        
+        .rate-info {
+            font-size: 0.9rem;
+            color: var(--medium);
+            margin-top: 8px;
+            text-align: center;
+        }
+        
+        .loading {
+            color: var(--primary);
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .vehicle-banner {
+            background: #e2f0ff;
+            color: #004085;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            border-left: 4px solid #0d6efd;
+        }
+        
+        .action-center {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border);
+        }
+        
+        /* Enhanced Invoice Styles */
+        .invoice-container {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            overflow: hidden;
+            margin-top: 30px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .invoice-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invoice-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark), var(--accent));
+        }
+
+        .invoice-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .invoice-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .meta-item p {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .meta-label {
+            font-weight: 600;
+            opacity: 0.85;
+        }
+        
+        .meta-value {
+            font-weight: 500;
+        }
+        
+        .invoice-body {
+            padding: 40px 30px;
+        }
+        
+        .invoice-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .summary-card h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .summary-content p {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.05rem;
+        }
+        
+        .summary-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .invoice-table th, 
+        .invoice-table td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .invoice-table thead th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .invoice-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .invoice-table tbody tr:hover {
+            background-color: #f1f8e9;
+        }
+        
+        .invoice-table tfoot th {
+            background: #e9ecef;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .invoice-table .grandtotal-row th {
+            background: var(--primary);
+            color: white;
+            font-size: 1.3rem;
+        }
+        
+        .price-includes {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .price-includes h4 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .price-includes ul {
+            padding-left: 25px;
+            columns: 2;
+            column-gap: 40px;
+        }
+        
+        .price-includes li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            break-inside: avoid;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .price-includes li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .currency-converter {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 25px;
+            font-size: 1.2rem;
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            border: 1px solid var(--border);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .currency-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .wildlife-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .wildlife-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(44, 110, 73, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .wildlife-icon:hover {
+            transform: translateY(-5px);
+            background: rgba(44, 110, 73, 0.2);
+        }
+        
+        
+        
+        .transport-fee {
+            background: rgba(44, 110, 73, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .transport-fee div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .transport-fee .total {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            border-top: 1px dashed var(--border);
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+        
+        .jeep-info {
+            background: #e8f4f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid var(--primary);
+            font-size: 1rem;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            header, .wildlife-icons, .calculator-card, footer, 
+            .invoice-actions, .action-buttons, .price-includes {
+                display: none !important;
+            }
+            
+           
+            .invoice-header {
+                padding: 20px;
+                border-radius: 0;
+            }
+            
+            .invoice-body {
+                padding: 30px 20px;
+            }
+            
+            .invoice-summary, .invoice-table, .currency-converter {
+                margin-bottom: 20px;
+            }
+            
+            .summary-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .invoice-header {
+                padding: 20px;
+            }
+            
+        
+            
+            .invoice-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .price-includes ul {
+                columns: 1;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            
+            .currency-converter {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .invoice-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .autocomplete-suggestions {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0;
+  margin-top: 4px;
+  z-index: 1000;
+}
+
+.autocomplete-suggestions div {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.autocomplete-suggestions div:hover,
+.autocomplete-suggestions div.active {
+  background-color: #f1f1f1;
+}
     </style>
 </head>
 <body>
@@ -2294,10 +2897,10 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
-                                            <h5 class="fw-bold mb-0" style="color: #2c3e50;">Mitsubishi Safari Jeep #1</h5>
+                                            <h5 class="fw-bold mb-0" style="color: #2c3e50;">Mitsubishi Jeep #1</h5>
                                             <span class="badge bg-success">Available</span>
                                         </div>
-                                        <p class="text-muted mb-3">Rugged 4WD with raised roof for optimal wildlife viewing</p>
+                                        <p class="text-muted mb-3">Ideal for photography enthusiasts</p>
                                         <div class="d-flex flex-wrap gap-2 mb-3">
                                             <span class="badge bg-light text-dark border"><i class="fas fa-users text-primary me-1"></i> 6 pax</span>
                                             <span class="badge bg-light text-dark border"><i class="fas fa-water text-primary me-1"></i> Water</span>
@@ -2477,7 +3080,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="fw-bold mb-0" style="color: #2c3e50;">Mitsubishi Safari Jeep #1</h5>
+                                <h5 class="fw-bold mb-0" style="color: #2c3e50;">Mitsubishi Jeep #1</h5>
                                 <span class="badge bg-success">Available</span>
                             </div>
                             <p class="text-muted mb-2">Rugged 4WD with raised roof for optimal wildlife viewing</p>
@@ -2887,34 +3490,37 @@
 </section>
 
 <!--Pricing Section-->
-<div class="container" style="display:none;">
-    <header>
-        <h1><i class="fas fa-paw"></i> Wilpattu Safari Calculator</h1>
-        <p class="header-subtitle">Calculate your safari experience with our easy-to-use price calculator for Wilpattu National Park</p>
-    </header>
-    
-    <div class="card">
+<div class="container" id="pricing" style="display: none;">
+  
+    <div class="card calculator-card">
         <div class="card-header">
-            <i class="fas fa-calculator"></i>
             <h2>Safari Price Calculator</h2>
         </div>
         <div class="card-body">
-            <div class="btn-group">
-                <button class="btn btn-outline safari-currency-btn active" data-currency="LKR">
-                    <i class="fas fa-rupee-sign"></i> LKR (රු)
-                </button>
-                <button class="btn btn-outline safari-currency-btn" data-currency="USD">
-                    <i class="fas fa-dollar-sign"></i> USD ($)
-                </button>
-            </div>
-            
-            <div class="exchange-rate">
-                <div>Current Exchange Rate: <span id="exchange-rate">1 USD = 300 LKR</span></div>
-                <div class="rate-info">Rates updated: <span id="rate-updated">Just now</span></div>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-col">
+            <div class="calculator-grid">
+                <div class="form-section">
+                    <div class="btn-group currency-btn">
+                        <button class="btn btn-outline-secondary active safari-currency-btn" data-currency="LKR" title="Sri Lankan Rupee">
+                            <span>🇱🇰</span> LKR
+                        </button>
+                        <button class="btn btn-outline-secondary safari-currency-btn" data-currency="USD" title="US Dollar">
+                            <span>🇺🇸</span> USD
+                        </button>
+                        <button class="btn btn-outline-secondary safari-currency-btn" data-currency="EUR" title="Euro">
+                            <span>🇪🇺</span> EUR
+                        </button>
+                        <button class="btn btn-outline-secondary safari-currency-btn" data-currency="CNY" title="Chinese Yuan">
+                            <span>🇨🇳</span> CNY
+                        </button>
+                    </div>
+                    
+                    <div class="exchange-rate">
+                        <div><span id="usd-rate">1 USD = 300.00 LKR</span></div>
+                        <div><span id="eur-rate">1 EUR = 330.00 LKR</span></div>
+                        <div><span id="cny-rate">1 CNY = 42.00 LKR</span></div>
+                        <div class="rate-info">Rates updated: <span id="rate-updated-time">Today</span></div>
+                    </div>
+                    
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-safari"></i> Safari Type</label>
                         <select class="form-control" id="safari-type">
@@ -2922,9 +3528,7 @@
                             <option value="half-day">Half Day Safari (6 hours)</option>
                         </select>
                     </div>
-                </div>
-                
-                <div class="form-col">
+                    
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-user-tag"></i> Visitor Type</label>
                         <select class="form-control" id="visitor-type">
@@ -2933,10 +3537,8 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-col">
+                
+                <div class="form-section">
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-user"></i> Number of Adults</label>
                         <select class="form-control" id="number-persons">
@@ -2952,9 +3554,7 @@
                             <span>Maximum 6 people per vehicle</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="form-col">
+                    
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-child"></i> Children (6-12 years)</label>
                         <select class="form-control" id="number-children">
@@ -2971,25 +3571,28 @@
                             <span>Maximum 6 people per vehicle</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="warning hidden" id="group-warning">
-                <i class="fas fa-exclamation-circle"></i>
-                <span id="warning-message"></span>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-col">
-                    <div class="form-group" style="position: relative;">
-                        <label class="form-label"><i class="fas fa-map-marker-alt"></i> Pickup Location (City/Hotel)</label>
-                        <input type="text" class="form-control" id="pickup-location" placeholder="Enter your location">
-                        <div class="loading-spinner" id="location-loading"></div>
-                        <div class="suggestion-list hidden" id="pickup-suggestions"></div>
+                    
+                    <div class="jeep-info">
+                        <i class="fas fa-car"></i> <strong>Jeep Requirement:</strong> 
+                        <span id="jeep-requirement">1 jeep (max 6 persons)</span>
+                    </div>
+                    
+                    <div class="warning hidden" id="group-warning">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="warning-message"></span>
                     </div>
                 </div>
                 
-                <div class="form-col">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-map-marker-alt"></i> Pickup Location (City/Hotel)</label>
+                        <input type="text" class="form-control" id="pickup-location" placeholder="Enter your location">
+                        <div id="location-suggestions" class="autocomplete-suggestions"></div>
+                        <div class="rate-info" id="distance-info" style="margin-top: 10px; display: none;">
+                            Distance to Wilpattu: <span id="calculated-distance">0 km</span>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-car"></i> Transport Option</label>
                         <select class="form-control" id="transport-option">
@@ -2997,78 +3600,69 @@
                             <option value="include-transport">Include Transport</option>
                         </select>
                     </div>
-                </div>
-            </div>
-            
-            <div class="form-row" id="vehicle-section" style="display: none;">
-                <div class="form-col">
-                    <div class="form-group">
+                    
+                    <div class="form-group" id="vehicle-section" style="display: none;">
                         <label class="form-label"><i class="fas fa-taxi"></i> Vehicle Type</label>
                         <select class="form-control" id="vehicle-type">
-                            <option value="Premio">Toyota Premio (140 LKR/km)</option>
-                            <option value="Townace">Toyota Townace (140 LKR/km)</option>
-                            <option value="Alto">Suzuki Alto (80 LKR/km)</option>
+                            <option value="Premio">Toyota Premio (100 LKR/km)</option>
+                            <option value="Townace">Toyota Townace (100 LKR/km)</option>
+                            <option value="Alto">Suzuki Alto (70 LKR/km)</option>
                         </select>
-                        <div class="vehicle-banner hidden" id="vehicle-banner">
-                            Note: Alto vehicles are limited to 6 people. For larger groups, multiple vehicles will be required.
+                        <div class="vehicle-banner">
+                            Note: All vehicles are limited to 6 people. For larger groups, multiple vehicles will be required.
+                        </div>
+                    </div>
+                    
+                    <div class="transport-fee" id="transport-fee-display" style="display: none;">
+                        <div>
+                            <span>Estimated Distance:</span>
+                            <span id="transport-distance">100 km (round trip)</span>
+                        </div>
+                        <div>
+                            <span>Rate:</span>
+                            <span id="transport-rate">රු200.00/km</span>
+                        </div>
+                        <div class="total">
+                            <span>Transport Fee:</span>
+                            <span id="transport-total">රු20,000.00</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="exchange-rate hidden" id="transport-info">
-                <i class="fas fa-car"></i>
-                <span id="transport-message">Transport cost calculated based on your pickup location</span>
-                <span id="transport-price" style="margin-left: 10px; font-weight: bold;"></span>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
+            <div class="action-center">
                 <button id="calculate-btn" class="btn btn-primary btn-lg">
-                    <i class="fas fa-calculator"></i> Calculate Total Price
+                    <i class="fas fa-calculator"></i> Calculate Safari Price
                 </button>
             </div>
         </div>
     </div>
     
-    <div class="card" id="calculation-result">
-        <div class="card-header">
-            <i class="fas fa-file-invoice"></i>
-            <h2>Your Safari Invoice</h2>
-            <div class="invoice-actions">
-                <button id="print-invoice" class="btn btn-outline">
-                    <i class="fas fa-print"></i> Print PDF
-                </button>
-                <button id="new-calculation" class="btn btn-outline">
-                    <i class="fas fa-redo"></i> New Calculation
-                </button>
+    <div class="invoice-container" id="calculation-result">
+        <div class="invoice-header">
+            
+            
+            <div class="invoice-title">WILPANTHERA TOURS INVOICE</div>
+            
+            <div class="invoice-meta">
+                <div class="meta-item">
+                    <p><span class="meta-label">Invoice #:</span> <span class="meta-value" id="invoice-number">WT-20230801</span></p>
+                    <p><span class="meta-label">Date:</span> <span class="meta-value" id="invoice-date">August 6, 2025</span></p>
+                </div>
+                <div class="meta-item">
+                    <p><span class="meta-label">Prepared For:</span> <span class="meta-value" id="invoice-client">Safari Guest</span></p>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="invoice-header">
-                <div class="company-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-paw"></i>
-                    </div>
-                    <div class="company-info">
-                        <h3>Wilpattu Safari Tours</h3>
-                        <p>Wilpattu National Park, Sri Lanka</p>
-                        <p>info@wilpattusafari.com | +94 76 123 4567</p>
-                    </div>
-                </div>
-                <div class="invoice-meta">
-                    <div class="invoice-title">SAFARI INVOICE</div>
-                    <p><strong>Invoice #:</strong> <span id="invoice-number">WT-20230801</span></p>
-                    <p><strong>Date:</strong> <span id="invoice-date"></span></p>
-                </div>
-            </div>
-            
+        
+        <div class="invoice-body">
             <div class="invoice-summary">
                 <div class="summary-card">
                     <h4><i class="fas fa-info-circle"></i> Safari Details</h4>
                     <div class="summary-content">
                         <p><strong>Type:</strong> <span id="result-type">Full Day Safari</span></p>
                         <p><strong>Duration:</strong> <span id="result-duration">12 hours (6am-6pm)</span></p>
-                        <p><strong>Includes:</strong> <span id="result-includes">Jeep, Park fees, Taxes</span></p>
+                        <p><strong>Jeeps Required:</strong> <span id="result-jeeps">1</span></p>
                     </div>
                 </div>
                 
@@ -3086,12 +3680,12 @@
                     <div class="summary-content">
                         <p><strong>Pickup:</strong> <span id="result-pickup">Not specified</span></p>
                         <p><strong>Vehicle:</strong> <span id="result-vehicle">Not selected</span></p>
-                        <p><strong>Jeeps Required:</strong> <span id="result-jeeps">1</span></p>
+                        <p><strong>Distance:</strong> <span id="result-distance">10 km Free service</span></p>
                     </div>
                 </div>
             </div>
             
-            <table>
+            <table class="invoice-table">
                 <thead>
                     <tr>
                         <th>Description</th>
@@ -3101,62 +3695,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="vehicle-entry-row">
-                        <td>Vehicle Entry Fee</td>
-                        <td id="vehicle-entry-quantity">1</td>
-                        <td id="vehicle-entry-price">රු300.00</td>
-                        <td id="vehicle-entry-total">රු300.00</td>
+                    <tr id="package-price-row">
+                        <td>Safari Package</td>
+                        <td id="package-persons">2 Persons</td>
+                        <td id="package-unit-price">$131.00</td>
+                        <td id="package-total">$262.00</td>
                     </tr>
                     
-                    <tr id="safari-cab-row">
+                    <tr id="safari-cab-row" style="display: none;">
                         <td>Safari Jeep Hire</td>
-                        <td id="safari-cab-quantity">1</td>
+                        <td id="safari-cab-quantity">1 jeep</td>
                         <td id="safari-cab-price">රු24,000.00</td>
                         <td id="safari-cab-total">රු24,000.00</td>
                     </tr>
                     
-                    <tr id="entrance-fees-row">
+                    <tr id="entrance-fees-row" style="display: none;">
                         <td>Entrance Fees</td>
                         <td id="entrance-fees-quantity">2 Adults</td>
-                        <td id="entrance-fees-price">$15.00</td>
-                        <td id="entrance-fees-total">$30.00</td>
+                        <td id="entrance-fees-price">රු150.00</td>
+                        <td id="entrance-fees-total">රු300.00</td>
                     </tr>
                     
-                    <tr id="booking-fee-row">
-                        <td>Booking Fee</td>
-                        <td>1</td>
-                        <td id="booking-fee-unit">රු500.00</td>
-                        <td id="booking-fee-total">රු500.00</td>
-                    </tr>
-                    
-                    <tr id="service-charge-row">
-                        <td>Service Charge</td>
-                        <td>1</td>
-                        <td id="service-charge-unit">$15.00</td>
-                        <td id="service-charge-total">$15.00</td>
-                    </tr>
-                    
-                    <tr id="transport-row" class="hidden">
+                    <tr id="transport-row" style="display: none;">
                         <td>Transport Cost</td>
-                        <td id="transport-distance">Round trip</td>
-                        <td id="transport-unit-price">$0.00/km</td>
-                        <td id="transport-total">$0.00</td>
-                    </tr>
-                    
-                    <tr id="vat-row">
-                        <td>VAT (18%)</td>
-                        <td colspan="2">Applied to applicable fees</td>
-                        <td id="vat-amount">$5.40</td>
+                        <td id="transport-row-distance">100 km</td>
+                        <td id="transport-row-unit-price">රු200.00/km</td>
+                        <td id="transport-row-total">රු20,000.00</td>
                     </tr>
                 </tbody>
                 <tfoot>
-                    <tr class="subtotal-row">
-                        <th colspan="3">Subtotal:</th>
-                        <th id="subtotal">$45.00</th>
-                    </tr>
                     <tr class="grandtotal-row">
                         <th colspan="3">Grand Total:</th>
-                        <th id="grand-total">$50.40</th>
+                        <th id="grand-total">$277.00</th>
                     </tr>
                 </tfoot>
             </table>
@@ -3164,28 +3734,26 @@
             <div class="price-includes">
                 <h4><i class="fas fa-info-circle"></i> Price Includes</h4>
                 <ul>
-                    <li>Professional safari guide</li>
-                    <li>Park entrance fees</li>
-                    <li>Vehicle and driver entry fees</li>
-                    <li>Jeep safari with water and snacks</li>
-                    <li>All government taxes</li>
-                    <li>Hotel pickup and drop-off (for selected packages)</li>
+                    <li>Park entrance and conservation fees</li>
+                    <li>Specialized safari jeep with driver</li>
+                    <li>Bottled water and snacks during safari</li>
+                    <li>All government taxes and service charges</li>
+                    <li>Hotel pickup and drop-off (when transport included)</li>
+                    <li>Rice & Curry lunch (for full day safari)</li>
+                    <li>Wildlife information booklet</li>
+                    <li>First aid and emergency support</li>
                 </ul>
             </div>
-            
-            <div class="exchange-rate">
-                <div><strong>Exchange Rate Used:</strong> <span id="invoice-exchange-rate">1 USD = 300 LKR</span></div>
-                <div class="currency-converter">
-                    <span>Grand Total: </span>
-                    <span id="grand-total-lkr" style="font-weight: bold;">LKR 15,120.00</span>
-                    <span>|</span>
-                    <span id="grand-total-usd" style="font-weight: bold;">$50.40</span>
-                </div>
-            </div>
-            
+          
             <div class="action-buttons">
-                <button class="btn btn-primary btn-lg px-4 me-2 btn-hero">
-                    <i class="fas fa-calendar-check"></i> <a href="#contact" class="color:white !important;">Book Now</a>
+                <button onclick="scrollToContact()" class="btn btn-primary btn-lg px-4 me-2 btn-hero">
+                    <i class="fas fa-calendar-check"></i> Book This Safari Now
+                </button>
+                <button class="btn btn-primary btn-lg px-4 me-2 btn-hero" id="print-invoice">
+                    <i class="fas fa-print"></i> Print Invoice
+                </button>
+                <button class="btn btn-primary btn-lg px-4 me-2 btn-hero" id="new-calculation">
+                    <i class="fas fa-redo"></i> New Calculation
                 </button>
             </div>
         </div>
@@ -3809,680 +4377,6 @@
     handleServiceSelection();
 });
  
-document.addEventListener('DOMContentLoaded', function() {
-            // Set current date
-            const today = new Date();
-            document.getElementById('invoice-date').textContent = today.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            });
-            
-            // Generate random invoice number
-            const invoiceNumber = 'WT-' + today.getFullYear() + 
-                String(today.getMonth() + 1).padStart(2, '0') + 
-                String(today.getDate()).padStart(2, '0') + 
-                Math.floor(100 + Math.random() * 900);
-            document.getElementById('invoice-number').textContent = invoiceNumber;
-
-            // Exchange rate from free API
-            let exchangeRate = 300; // Default as fallback
-            let rateUpdated = new Date();
-            
-            // Fetch live exchange rate
-            async function fetchExchangeRate() {
-                try {
-                    const response = await fetch('https://open.er-api.com/v6/latest/USD');
-                    const data = await response.json();
-                    if (data && data.rates && data.rates.LKR) {
-                        exchangeRate = data.rates.LKR;
-                        rateUpdated = new Date(data.time_last_update_utc);
-                        updateExchangeRateDisplay();
-                    }
-                } catch (error) {
-                    console.error("Failed to fetch exchange rate, using default", error);
-                    // Use default rate and set to current time
-                    rateUpdated = new Date();
-                    updateExchangeRateDisplay();
-                }
-            }
-            
-            // Update exchange rate display
-            function updateExchangeRateDisplay() {
-                document.getElementById('exchange-rate').textContent = `1 USD = ${exchangeRate.toFixed(2)} LKR`;
-                document.getElementById('invoice-exchange-rate').textContent = `1 USD = ${exchangeRate.toFixed(2)} LKR`;
-                document.getElementById('rate-updated').textContent = rateUpdated.toLocaleTimeString();
-            }
-            
-            // Fetch exchange rate on load
-            fetchExchangeRate();
-            
-            // Currency symbols
-            const currencySymbols = {
-                USD: '$',
-                LKR: 'රු'
-            };
-
-            // Vehicle rates per km in LKR
-            const vehicleRates = {
-                'Premio': 140,
-                'Townace': 140,
-                'Alto': 80
-            };
-
-            // Wilpattu National Park coordinates
-            const wilpattuCoords = {
-                lat: 8.3000,
-                lon: 80.1480
-            };
-
-            // Safari pricing data
-            const safariPrices = {
-                'foreigner': {
-                    'adult-ticket': 7416.75,  // LKR per adult (29667 / 4)
-                    'child-ticket': 3708.375,  // Half of adult ticket
-                    'vehicle-fee': 300,        // LKR per jeep
-                    'service-charge-percent': 10, // 10% service charge
-                    'vat-percent': 18,         // 18% VAT
-                    'cab': {
-                        'full-day': 24000,    // LKR per jeep
-                        'half-day': 12000      // LKR per jeep
-                    },
-                    'booking-fee': 500         // Fixed booking fee
-                },
-                'local': {
-                    'adult-ticket': 150,       // LKR per adult
-                    'child-ticket': 75,         // Half of adult ticket
-                    'vehicle-fee': 300,         // LKR per jeep
-                    'cab': {
-                        'full-day': 24000,
-                        'half-day': 12000
-                    },
-                    'booking-fee': 500          // Fixed booking fee
-                }
-            };
-            
-            // Safari details
-            const safariDetails = {
-                'full-day': {
-                    name: 'Full Day Safari',
-                    duration: '12 hours (6am-6pm)',
-                    includes: 'Jeep fees, Park entrance fees, All taxes, Free hotel pick up and drop (Wilpattu area only)'
-                },
-                'half-day': {
-                    name: 'Half Day Safari',
-                    duration: '6 hours',
-                    includes: 'Jeep fees, Park entrance fees, All taxes'
-                }
-            };
-
-            // Format number with commas
-            function formatNumber(num, decimals = 2, currency = 'LKR') {
-                const symbol = currencySymbols[currency];
-                const formatted = num.toLocaleString(undefined, {
-                    minimumFractionDigits: decimals,
-                    maximumFractionDigits: decimals
-                });
-                return `${symbol}${formatted}`;
-            }
-
-            // Update all prices on page based on selected currency
-            function updateAllPrices(currency) {
-                const symbol = currencySymbols[currency];
-                
-                // Update currency selector buttons
-                document.querySelectorAll('.safari-currency-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.currency === currency) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                // If invoice is visible, recalculate to update with new currency
-                if (!document.getElementById('calculation-result').classList.contains('hidden')) {
-                    calculateSafariPrice();
-                }
-            }
-
-            // Get location suggestions from OpenStreetMap Nominatim API
-            async function getLocationSuggestions(query) {
-                if (query.length < 3) return [];
-                
-                try {
-                    document.getElementById('location-loading').style.display = 'block';
-                    
-                    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=lk&limit=5`);
-                    const data = await response.json();
-                    
-                    return data.map(item => ({
-                        display: item.display_name.split(',')[0],
-                        lat: parseFloat(item.lat),
-                        lon: parseFloat(item.lon)
-                    }));
-                } catch (error) {
-                    console.error("Error fetching location suggestions:", error);
-                    return [];
-                } finally {
-                    document.getElementById('location-loading').style.display = 'none';
-                }
-            }
-
-            // Calculate distance between two coordinates (Haversine formula)
-            function calculateDistance(lat1, lon1, lat2, lon2) {
-                const R = 6371; // Earth radius in km
-                const dLat = (lat2 - lat1) * Math.PI / 180;
-                const dLon = (lon2 - lon1) * Math.PI / 180;
-                const a = 
-                    Math.sin(dLat/2) * Math.sin(dLat/2) +
-                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-                    Math.sin(dLon/2) * Math.sin(dLon/2);
-                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                return R * c; // Distance in km
-            }
-
-            // Calculate transport cost using coordinates
-            async function calculateTransportCost(pickupLocation, visitorType, currency, vehicleType, numAdults, numChildren) {
-                try {
-                    // Get coordinates for the pickup location
-                    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(pickupLocation)}&countrycodes=lk&limit=1`);
-                    const data = await response.json();
-                    
-                    if (data.length === 0) {
-                        throw new Error("Location not found");
-                    }
-                    
-                    const location = data[0];
-                    const pickupLat = parseFloat(location.lat);
-                    const pickupLon = parseFloat(location.lon);
-                    
-                    // Calculate distance to Wilpattu
-                    const distance = calculateDistance(pickupLat, pickupLon, wilpattuCoords.lat, wilpattuCoords.lon);
-                    
-                    // Get the vehicle rate
-                    const rateLKR = vehicleRates[vehicleType];
-                    
-                    // Calculate number of vehicles needed
-                    const totalPeople = numAdults + numChildren;
-                    const maxPerVehicle = 6; // Max 6 people per vehicle
-                    const vehiclesNeeded = Math.ceil(totalPeople / maxPerVehicle);
-                    
-                    // Calculate transport cost
-                    let transportCostLKR = distance * 2 * rateLKR * vehiclesNeeded;
-                    
-                    // Convert to selected currency
-                    const transportCost = currency === 'LKR' ? transportCostLKR : transportCostLKR / exchangeRate;
-                    
-                    return {
-                        distance,
-                        cost: transportCost,
-                        rate: currency === 'LKR' ? rateLKR : rateLKR / exchangeRate,
-                        fromLocation: location.display_name.split(',')[0],
-                        vehicleType: vehicleType,
-                        vehiclesNeeded: vehiclesNeeded
-                    };
-                } catch (error) {
-                    console.error("Error calculating transport:", error);
-                    return null;
-                }
-            }
-
-            // Validate group size
-            function validateGroupSize(numAdults, numChildren, visitorType) {
-                const totalPeople = numAdults + numChildren;
-                const warningMessage = document.getElementById('warning-message');
-                const groupWarning = document.getElementById('group-warning');
-                const adultWarning = document.getElementById('adult-warning');
-                const childWarning = document.getElementById('child-warning');
-                
-                // Reset warnings
-                adultWarning.style.display = 'none';
-                childWarning.style.display = 'none';
-                groupWarning.classList.add('hidden');
-                
-                // Validate group size
-                if (visitorType === 'foreigner' && totalPeople > 6) {
-                    warningMessage.textContent = `Foreign tourist groups are limited to 6 people. You have selected ${totalPeople}.`;
-                    groupWarning.classList.remove('hidden');
-                    return false;
-                }
-                
-                if (totalPeople > 6) {
-                    const message = `You have ${totalPeople} people. You need ${Math.ceil(totalPeople/6)} jeeps.`;
-                    warningMessage.textContent = message;
-                    groupWarning.classList.remove('hidden');
-                    return true; // Still valid but show warning
-                }
-                
-                return true;
-            }
-
-            // Main function to calculate safari price
-            async function calculateSafariPrice() {
-                const safariType = document.getElementById('safari-type').value;
-                const visitorType = document.getElementById('visitor-type').value;
-                const numAdults = parseInt(document.getElementById('number-persons').value);
-                const numChildren = parseInt(document.getElementById('number-children').value);
-                const currency = document.querySelector('.safari-currency-btn.active').dataset.currency;
-                const transportOption = document.getElementById('transport-option').value;
-                const pickupLocation = document.getElementById('pickup-location').value.trim();
-                const vehicleType = document.getElementById('vehicle-type').value;
-                const totalPeople = numAdults + numChildren;
-                
-                // Calculate jeeps required
-                const maxPerJeep = 6;
-                const jeepsRequired = Math.ceil(totalPeople / maxPerJeep);
-                document.getElementById('result-jeeps').textContent = jeepsRequired;
-                
-                // Validate group size
-                if (!validateGroupSize(numAdults, numChildren, visitorType)) {
-                    document.getElementById('calculation-result').classList.add('hidden');
-                    return;
-                }
-                
-                // Show/hide transport info
-                const transportInfo = document.getElementById('transport-info');
-                if (transportOption === 'include-transport' && pickupLocation) {
-                    transportInfo.classList.remove('hidden');
-                    document.getElementById('transport-message').textContent = 'Calculating transport cost...';
-                    document.getElementById('transport-price').textContent = '';
-                } else {
-                    transportInfo.classList.add('hidden');
-                }
-                
-                let grandTotal = 0;
-                let transportDetails = null;
-                
-                // Calculate based on visitor type
-                if (visitorType === 'foreigner') {
-                    // FOREIGNER PRICING
-                    const adultTicketPrice = safariPrices['foreigner']['adult-ticket'];
-                    const childTicketPrice = safariPrices['foreigner']['child-ticket'];
-                    const serviceChargePercent = safariPrices['foreigner']['service-charge-percent'];
-                    const vatPercent = safariPrices['foreigner']['vat-percent'];
-                    const vehicleFeePerJeep = safariPrices['foreigner']['vehicle-fee'];
-                    const cabFeePerJeep = safariPrices['foreigner']['cab'][safariType];
-                    const bookingFee = safariPrices['foreigner']['booking-fee'];
-
-                    // Calculate ticket costs
-                    let adultTicketTotal = adultTicketPrice * numAdults;
-                    let childTicketTotal = childTicketPrice * numChildren;
-                    let ticketTotal = adultTicketTotal + childTicketTotal;
-
-                    // Calculate number of jeeps needed
-                    const vehicleFeeTotal = vehicleFeePerJeep * jeepsRequired;
-                    const cabFeeTotal = cabFeePerJeep * jeepsRequired;
-
-                    // Calculate service charge (10% of tickets only)
-                    const serviceCharge = ticketTotal * (serviceChargePercent / 100);
-
-                    // Subtotal before VAT
-                    const subtotalBeforeVat = ticketTotal + vehicleFeeTotal + cabFeeTotal + serviceCharge + bookingFee;
-
-                    // Calculate VAT (18% of subtotal)
-                    const vatAmount = subtotalBeforeVat * (vatPercent / 100);
-
-                    // Grand total in LKR
-                    grandTotal = subtotalBeforeVat + vatAmount;
-
-                    // Convert to selected currency if needed
-                    let ticketTotalDisplay, vehicleFeeTotalDisplay, cabFeeTotalDisplay;
-                    let serviceChargeDisplay, bookingFeeDisplay, vatAmountDisplay;
-                    
-                    if (currency !== 'LKR') {
-                        ticketTotalDisplay = ticketTotal / exchangeRate;
-                        vehicleFeeTotalDisplay = vehicleFeeTotal / exchangeRate;
-                        cabFeeTotalDisplay = cabFeeTotal / exchangeRate;
-                        serviceChargeDisplay = serviceCharge / exchangeRate;
-                        bookingFeeDisplay = bookingFee / exchangeRate;
-                        vatAmountDisplay = vatAmount / exchangeRate;
-                    } else {
-                        ticketTotalDisplay = ticketTotal;
-                        vehicleFeeTotalDisplay = vehicleFeeTotal;
-                        cabFeeTotalDisplay = cabFeeTotal;
-                        serviceChargeDisplay = serviceCharge;
-                        bookingFeeDisplay = bookingFee;
-                        vatAmountDisplay = vatAmount;
-                    }
-
-                    // Update display with calculated values
-                    document.getElementById('entrance-fees-quantity').textContent = 
-                        `${numAdults} Adult${numAdults > 1 ? 's' : ''}, ${numChildren} Child${numChildren !== 1 ? 'ren' : ''}`;
-                    document.getElementById('entrance-fees-price').textContent = 
-                        formatNumber(currency === 'LKR' ? adultTicketPrice : adultTicketPrice / exchangeRate, 2, currency);
-                    document.getElementById('entrance-fees-total').textContent = 
-                        formatNumber(ticketTotalDisplay, 2, currency);
-                    
-                    // Vehicle entry fee
-                    document.getElementById('vehicle-entry-price').textContent = 
-                        formatNumber(currency === 'LKR' ? vehicleFeePerJeep : vehicleFeePerJeep / exchangeRate, 2, currency);
-                    document.getElementById('vehicle-entry-total').textContent = 
-                        formatNumber(vehicleFeeTotalDisplay, 2, currency);
-                    
-                    // Safari cab fee
-                    document.getElementById('safari-cab-price').textContent = 
-                        formatNumber(currency === 'LKR' ? cabFeePerJeep : cabFeePerJeep / exchangeRate, 2, currency);
-                    document.getElementById('safari-cab-total').textContent = 
-                        formatNumber(cabFeeTotalDisplay, 2, currency);
-                    
-                    // Booking fee
-                    document.getElementById('booking-fee-unit').textContent = 
-                        formatNumber(currency === 'LKR' ? bookingFee : bookingFee / exchangeRate, 2, currency);
-                    document.getElementById('booking-fee-total').textContent = 
-                        formatNumber(bookingFeeDisplay, 2, currency);
-                    
-                    // Service charge
-                    document.getElementById('service-charge-unit').textContent = 
-                        formatNumber(serviceChargeDisplay, 2, currency);
-                    document.getElementById('service-charge-total').textContent = 
-                        formatNumber(serviceChargeDisplay, 2, currency);
-                    
-                    // VAT
-                    document.getElementById('vat-amount').textContent = 
-                        formatNumber(vatAmountDisplay, 2, currency);
-                    
-                } else {
-                    // LOCAL PRICING
-                    const adultTicketPrice = safariPrices['local']['adult-ticket'];
-                    const childTicketPrice = safariPrices['local']['child-ticket'];
-                    const vehicleFeePerJeep = safariPrices['local']['vehicle-fee'];
-                    const cabFeePerJeep = safariPrices['local']['cab'][safariType];
-                    const bookingFee = safariPrices['local']['booking-fee'];
-
-                    // Calculate ticket costs
-                    let adultTicketTotal = adultTicketPrice * numAdults;
-                    let childTicketTotal = childTicketPrice * numChildren;
-                    let ticketTotal = adultTicketTotal + childTicketTotal;
-
-                    // Calculate number of jeeps needed
-                    const vehicleFeeTotal = vehicleFeePerJeep * jeepsRequired;
-                    const cabFeeTotal = cabFeePerJeep * jeepsRequired;
-
-                    // Grand total in LKR
-                    grandTotal = ticketTotal + vehicleFeeTotal + cabFeeTotal + bookingFee;
-
-                    // Convert to selected currency if needed
-                    let ticketTotalDisplay, vehicleFeeTotalDisplay, cabFeeTotalDisplay;
-                    let bookingFeeDisplay;
-                    
-                    if (currency !== 'LKR') {
-                        ticketTotalDisplay = ticketTotal / exchangeRate;
-                        vehicleFeeTotalDisplay = vehicleFeeTotal / exchangeRate;
-                        cabFeeTotalDisplay = cabFeeTotal / exchangeRate;
-                        bookingFeeDisplay = bookingFee / exchangeRate;
-                    } else {
-                        ticketTotalDisplay = ticketTotal;
-                        vehicleFeeTotalDisplay = vehicleFeeTotal;
-                        cabFeeTotalDisplay = cabFeeTotal;
-                        bookingFeeDisplay = bookingFee;
-                    }
-
-                    // Update entrance fees display
-                    document.getElementById('entrance-fees-quantity').textContent = 
-                        `${numAdults} Adult${numAdults > 1 ? 's' : ''}, ${numChildren} Child${numChildren !== 1 ? 'ren' : ''}`;
-                    document.getElementById('entrance-fees-price').textContent = 
-                        formatNumber(currency === 'LKR' ? adultTicketPrice : adultTicketPrice / exchangeRate, 2, currency);
-                    document.getElementById('entrance-fees-total').textContent = 
-                        formatNumber(ticketTotalDisplay, 2, currency);
-                    
-                    // Vehicle entry fee
-                    document.getElementById('vehicle-entry-price').textContent = 
-                        formatNumber(currency === 'LKR' ? vehicleFeePerJeep : vehicleFeePerJeep / exchangeRate, 2, currency);
-                    document.getElementById('vehicle-entry-total').textContent = 
-                        formatNumber(vehicleFeeTotalDisplay, 2, currency);
-                    
-                    // Safari cab fee
-                    document.getElementById('safari-cab-price').textContent = 
-                        formatNumber(currency === 'LKR' ? cabFeePerJeep : cabFeePerJeep / exchangeRate, 2, currency);
-                    document.getElementById('safari-cab-total').textContent = 
-                        formatNumber(cabFeeTotalDisplay, 2, currency);
-                    
-                    // Booking fee
-                    document.getElementById('booking-fee-unit').textContent = 
-                        formatNumber(currency === 'LKR' ? bookingFee : bookingFee / exchangeRate, 2, currency);
-                    document.getElementById('booking-fee-total').textContent = 
-                        formatNumber(bookingFeeDisplay, 2, currency);
-                    
-                    // No service charge or VAT for locals
-                    document.getElementById('service-charge-unit').textContent = formatNumber(0, 2, currency);
-                    document.getElementById('service-charge-total').textContent = formatNumber(0, 2, currency);
-                    document.getElementById('vat-amount').textContent = formatNumber(0, 2, currency);
-                }
-                
-                // Calculate transport if needed
-                if (transportOption === 'include-transport' && pickupLocation) {
-                    try {
-                        transportDetails = await calculateTransportCost(pickupLocation, visitorType, currency, vehicleType, numAdults, numChildren);
-                        
-                        if (transportDetails) {
-                            grandTotal += transportDetails.cost;
-                            
-                            // Update transport info display
-                            document.getElementById('transport-message').textContent = 'Transport cost from ' + transportDetails.fromLocation;
-                            document.getElementById('transport-price').textContent = formatNumber(transportDetails.cost, 2, currency);
-                            
-                            // Update pickup location and vehicle in invoice
-                            document.getElementById('result-pickup').textContent = transportDetails.fromLocation;
-                            document.getElementById('result-vehicle').textContent = transportDetails.vehicleType;
-                            
-                            // Show transport row
-                            document.getElementById('transport-row').classList.remove('hidden');
-                            document.getElementById('transport-unit-price').textContent = formatNumber(transportDetails.rate, 2, currency) + '/km';
-                            document.getElementById('transport-total').textContent = formatNumber(transportDetails.cost, 2, currency);
-                            document.getElementById('transport-distance').textContent = 
-                                `${transportDetails.distance.toFixed(1)} km × 2 (${transportDetails.vehiclesNeeded} vehicles)`;
-                        } else {
-                            document.getElementById('result-pickup').textContent = pickupLocation;
-                            document.getElementById('result-vehicle').textContent = vehicleType;
-                            document.getElementById('transport-message').textContent = 'Could not calculate transport cost';
-                        }
-                    } catch (error) {
-                        console.error("Transport calculation error:", error);
-                        document.getElementById('result-pickup').textContent = pickupLocation;
-                        document.getElementById('result-vehicle').textContent = vehicleType;
-                        document.getElementById('transport-message').textContent = 'Error calculating transport';
-                    }
-                } else {
-                    document.getElementById('result-pickup').textContent = transportOption === 'include-transport' ? 'Not specified' : 'Not included';
-                    document.getElementById('result-vehicle').textContent = 'Not selected';
-                    document.getElementById('transport-row').classList.add('hidden');
-                }
-                
-                // Update invoice display with safari details
-                document.getElementById('result-type').textContent = safariDetails[safariType].name;
-                document.getElementById('result-duration').textContent = safariDetails[safariType].duration;
-                
-                // Update includes text based on transport option
-                let includesText = safariDetails[safariType].includes;
-                if (transportOption === 'include-transport' && transportDetails) {
-                    includesText += `, Round-trip transport from ${transportDetails.fromLocation} in ${transportDetails.vehicleType}`;
-                }
-                document.getElementById('result-includes').textContent = includesText;
-                
-                document.getElementById('result-visitor').textContent = visitorType === 'foreigner' ? 'Foreign Tourist' : 'Local Tourist';
-                document.getElementById('result-persons').textContent = numAdults;
-                document.getElementById('result-children').textContent = numChildren;
-                
-                // Update subtotal and grand total
-                const subtotal = grandTotal - (transportDetails?.cost || 0);
-                document.getElementById('subtotal').textContent = formatNumber(
-                    currency === 'LKR' ? subtotal : subtotal / exchangeRate, 2, currency);
-                document.getElementById('grand-total').textContent = formatNumber(
-                    currency === 'LKR' ? grandTotal : grandTotal / exchangeRate, 2, currency);
-                
-                // Show both currencies in invoice
-                if (currency === 'USD') {
-                    document.getElementById('grand-total-usd').textContent = formatNumber(grandTotal / exchangeRate, 2, 'USD');
-                    document.getElementById('grand-total-lkr').textContent = formatNumber(grandTotal, 2, 'LKR');
-                } else {
-                    document.getElementById('grand-total-lkr').textContent = formatNumber(grandTotal, 2, 'LKR');
-                    document.getElementById('grand-total-usd').textContent = formatNumber(grandTotal / exchangeRate, 2, 'USD');
-                }
-                
-                // Show invoice
-                document.getElementById('calculation-result').classList.remove('hidden');
-              
-            }
-
-            // Print invoice as PDF
-            document.getElementById('print-invoice').addEventListener('click', function() {
-                const element = document.getElementById('calculation-result');
-                const opt = {
-                    margin: 10,
-                    filename: 'wilpattu-safari-invoice.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { 
-                        scale: 2,
-                        useCORS: true
-                    },
-                    jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
-                        orientation: 'portrait'
-                    }
-                };
-                
-                // Generate PDF
-                html2pdf().set(opt).from(element).save();
-            });
-
-            // New calculation button
-            document.getElementById('new-calculation').addEventListener('click', function() {
-                document.getElementById('calculation-result').classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Toggle between foreign/local pricing
-            document.getElementById('visitor-type').addEventListener('change', function() {
-                const visitorType = this.value;
-                
-                // Reset currency to default for visitor type
-                const defaultCurrency = visitorType === 'foreigner' ? 'USD' : 'LKR';
-                updateAllPrices(defaultCurrency);
-                
-                // Update currency buttons
-                document.querySelectorAll('.safari-currency-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.currency === defaultCurrency) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                // Validate group size
-                const numAdults = parseInt(document.getElementById('number-persons').value);
-                const numChildren = parseInt(document.getElementById('number-children').value);
-                validateGroupSize(numAdults, numChildren, visitorType);
-            });
-
-            // Show/hide vehicle option based on transport selection
-            document.getElementById('transport-option').addEventListener('change', function() {
-                const transportOption = this.value;
-                const vehicleSection = document.getElementById('vehicle-section');
-                
-                if (transportOption === 'include-transport') {
-                    vehicleSection.style.display = 'flex';
-                } else {
-                    vehicleSection.style.display = 'none';
-                }
-            });
-
-            // Show vehicle restrictions for Alto
-            document.getElementById('vehicle-type').addEventListener('change', function() {
-                const vehicleType = this.value;
-                const vehicleBanner = document.getElementById('vehicle-banner');
-                
-                if (vehicleType === 'Alto') {
-                    vehicleBanner.classList.remove('hidden');
-                } else {
-                    vehicleBanner.classList.add('hidden');
-                }
-            });
-
-            // Location suggestion functionality
-            const pickupInput = document.getElementById('pickup-location');
-            const suggestionsContainer = document.getElementById('pickup-suggestions');
-            
-            // Show suggestions when typing
-            pickupInput.addEventListener('input', async function() {
-                const query = this.value.trim();
-                if (query.length < 3) {
-                    suggestionsContainer.classList.add('hidden');
-                    return;
-                }
-                
-                const suggestions = await getLocationSuggestions(query);
-                if (suggestions.length > 0) {
-                    suggestionsContainer.innerHTML = '';
-                    suggestions.forEach(item => {
-                        const div = document.createElement('div');
-                        div.className = 'suggestion-item';
-                        div.textContent = item.display;
-                        div.addEventListener('click', function() {
-                            pickupInput.value = item.display;
-                            suggestionsContainer.classList.add('hidden');
-                        });
-                        suggestionsContainer.appendChild(div);
-                    });
-                    suggestionsContainer.classList.remove('hidden');
-                } else {
-                    suggestionsContainer.classList.add('hidden');
-                }
-            });
-            
-            // Hide suggestions when clicking outside
-            document.addEventListener('click', function(e) {
-                if (e.target !== pickupInput) {
-                    suggestionsContainer.classList.add('hidden');
-                }
-            });
-
-            // Event listener for transport option change
-            document.getElementById('transport-option').addEventListener('change', function() {
-                const pickupLocation = document.getElementById('pickup-location').value.trim();
-                if (this.value === 'include-transport' && !pickupLocation) {
-                    alert('Please enter your pickup location to calculate transport cost.');
-                    document.getElementById('pickup-location').focus();
-                }
-            });
-
-            // Validate group size when changing number of people
-            function handlePeopleChange() {
-                const visitorType = document.getElementById('visitor-type').value;
-                const numAdults = parseInt(document.getElementById('number-persons').value);
-                const numChildren = parseInt(document.getElementById('number-children').value);
-                const totalPeople = numAdults + numChildren;
-                
-                // Show warnings if approaching limit
-                const adultWarning = document.getElementById('adult-warning');
-                const childWarning = document.getElementById('child-warning');
-                
-                if (totalPeople >= 5) {
-                    adultWarning.style.display = 'flex';
-                    childWarning.style.display = 'flex';
-                } else {
-                    adultWarning.style.display = 'none';
-                    childWarning.style.display = 'none';
-                }
-                
-                validateGroupSize(numAdults, numChildren, visitorType);
-            }
-            
-            document.getElementById('number-persons').addEventListener('change', handlePeopleChange);
-            document.getElementById('number-children').addEventListener('change', handlePeopleChange);
-
-            // Main event listeners
-            document.getElementById('calculate-btn').addEventListener('click', calculateSafariPrice);
-            
-            document.querySelectorAll('.safari-currency-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const currency = this.dataset.currency;
-                    updateAllPrices(currency);
-                });
-            });
-
-            // Initialize with default values
-            updateAllPrices('USD');
-        });
-
 // Simple scroll animation enhancement
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -4493,6 +4387,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         });
   
+        function scrollToPricing() {
+            const contactSection = document.getElementById('pricing');
+            if (contactSection) {
+                contactSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
         function scrollToContact() {
             const contactSection = document.getElementById('contact');
             if (contactSection) {
@@ -4511,11 +4414,521 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 });
             }
         }
+
+     // Safari pricing data Ishantha
+  // Predefined safari prices
+  const safariPrices = {
+            'full-day': {
+                foreign: [190, 131, 113, 105, 99, 95],
+                local: {
+                    adult: 150,
+                    child: 75
+                },
+                jeep: 24000
+            },
+            'half-day': {
+                foreign: [130, 96, 88, 82, 79, 76],
+                local: {
+                    adult: 150,
+                    child: 75
+                },
+                jeep: 12000
+            }
+        };
+
+        // Transport pricing
+        const transportRates = {
+            'Premio': 100,
+            'Townace': 100,
+            'Alto': 70
+        };
+
+        // Predefined exchange rates
+        let exchangeRates = {
+            USD: 1,
+            LKR: 300,
+            EUR: 0.85,
+            CNY: 6.45
+        };
+
+        // Predefined locations with distances to Wilpattu (one way in km)
+        const locations = [
+            { name: "Colombo", distance: 180 },
+            { name: "Negombo", distance: 160 },
+            { name: "Kandy", distance: 140 },
+            { name: "Anuradhapura", distance: 50 },
+            { name: "Dambulla", distance: 70 },
+            { name: "Sigiriya", distance: 80 },
+            { name: "Trincomalee", distance: 170 },
+            { name: "Jaffna", distance: 150 },
+            { name: "Galle", distance: 220 },
+            { name: "Hikkaduwa", distance: 210 },
+            { name: "Bentota", distance: 200 },
+            { name: "Mirissa", distance: 240 },
+            { name: "Unawatuna", distance: 230 },
+            { name: "Nuwara Eliya", distance: 120 },
+            { name: "Ella", distance: 130 },
+            { name: "Polonnaruwa", distance: 90 },
+            { name: "Matara", distance: 250 },
+            { name: "Wilpattu Entrance", distance: 0 }
+        ];
+
+        // Global state
+        let state = {
+            currency: 'LKR',
+            safariType: 'full-day',
+            visitorType: 'foreigner',
+            adults: 2,
+            children: 0,
+            transportOption: 'no-transport',
+            vehicleType: 'Premio',
+            pickupLocation: '',
+            distance: 0
+        };
+
+        // Initialize the calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date
+            const now = new Date();
+            document.getElementById('invoice-date').textContent = now.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Set invoice number
+            document.getElementById('invoice-number').textContent = `WT-${now.getFullYear()}${String(now.getMonth()+1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+            
+            // Update jeep requirement
+            updateJeepRequirement();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize location autocomplete
+            initLocationAutocomplete();
+        });
+
+        // Initialize location autocomplete with predefined locations
+        function initLocationAutocomplete() {
+            const pickupInput = document.getElementById('pickup-location');
+            const suggestionsContainer = document.getElementById('location-suggestions');
+            
+            pickupInput.addEventListener('input', function(e) {
+                const query = e.target.value.trim().toLowerCase();
+                state.pickupLocation = query;
+                
+                if (query.length < 2) {
+                    suggestionsContainer.style.display = 'none';
+                    document.getElementById('distance-info').style.display = 'none';
+                    return;
+                }
+                
+                suggestionsContainer.innerHTML = '';
+                
+                const matches = locations.filter(location => 
+                    location.name.toLowerCase().includes(query)
+                );
+                
+                if (matches.length === 0) {
+                    suggestionsContainer.style.display = 'none';
+                    return;
+                }
+                
+                matches.forEach(location => {
+                    const suggestion = document.createElement('div');
+                    suggestion.className = 'autocomplete-suggestion';
+                    suggestion.textContent = location.name;
+                    suggestion.addEventListener('click', () => {
+                        pickupInput.value = location.name;
+                        state.pickupLocation = location.name;
+                        state.distance = location.distance;
+                        suggestionsContainer.style.display = 'none';
+                        
+                        // Update distance display
+                        document.getElementById('calculated-distance').textContent = `${location.distance} km (one way)`;
+                        document.getElementById('distance-info').style.display = 'block';
+                        
+                        // Update transport fee if needed
+                        if (state.transportOption === 'include-transport') {
+                            updateTransportFee();
+                        }
+                    });
+                    suggestionsContainer.appendChild(suggestion);
+                });
+                
+                suggestionsContainer.style.display = 'block';
+            });
+            
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (e.target !== pickupInput && e.target.className !== 'autocomplete-suggestion') {
+                    suggestionsContainer.style.display = 'none';
+                }
+            });
+        }
+
+        // Update transport fee display
+        function updateTransportFee() {
+            if (state.transportOption !== 'include-transport' || state.distance === 0) return;
+            
+            // Calculate round trip distance
+            const roundTripDistance = state.distance * 2;
+            
+            // Calculate transport cost in LKR
+            const transportCostLKR = roundTripDistance * transportRates[state.vehicleType];
+            
+            // Convert to selected currency
+            const convertedTransportCost = convertCurrency(transportCostLKR, 'LKR');
+            
+            // Update UI
+            document.getElementById('transport-distance').textContent = `${roundTripDistance} km (round trip)`;
+            document.getElementById('transport-rate').textContent = `${formatCurrency(transportRates[state.vehicleType], 'LKR')}/km`;
+            document.getElementById('transport-total').textContent = formatCurrency(convertedTransportCost, state.currency);
+            document.getElementById('transport-fee-display').style.display = 'block';
+        }
+
+        // Update jeep requirement display
+        function updateJeepRequirement() {
+            const totalPeople = state.adults + state.children;
+            const jeepsRequired = Math.ceil(totalPeople / 6);
+            document.getElementById('jeep-requirement').textContent = 
+                `${jeepsRequired} jeep${jeepsRequired > 1 ? 's' : ''} (max 6 persons per jeep)`;
+        }
+
+        // Convert between currencies
+        function convertCurrency(amount, fromCurrency) {
+            if (!exchangeRates[fromCurrency] || !exchangeRates[state.currency]) {
+                return amount;
+            }
+            return amount * (exchangeRates[state.currency] / exchangeRates[fromCurrency]);
+        }
+
+        // Format currency for display
+        function formatCurrency(amount, currency) {
+            // Custom formatting for LKR
+            if (currency === 'LKR') {
+                return `රු${amount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            }
+            
+            // For other currencies
+            const symbols = {
+                USD: '$',
+                EUR: '€',
+                CNY: '¥'
+            };
+            
+            return `${symbols[currency]}${amount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        }
+
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Currency buttons
+            document.querySelectorAll('.safari-currency-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.safari-currency-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    state.currency = this.dataset.currency;
+                    
+                    // Update transport fee display if visible
+                    if (document.getElementById('transport-fee-display').style.display === 'block') {
+                        updateTransportFee();
+                    }
+                    
+                    // Update invoice if visible
+                    if (document.getElementById('calculation-result').style.display === 'block') {
+                        calculateTotal();
+                    }
+                });
+            });
+
+            // Form controls
+            document.getElementById('safari-type').addEventListener('change', function() {
+                state.safariType = this.value;
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            document.getElementById('visitor-type').addEventListener('change', function() {
+                state.visitorType = this.value;
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            document.getElementById('number-persons').addEventListener('change', function() {
+                state.adults = parseInt(this.value) || 0;
+                validateGroupSize();
+                updateJeepRequirement();
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            document.getElementById('number-children').addEventListener('change', function() {
+                state.children = parseInt(this.value) || 0;
+                validateGroupSize();
+                updateJeepRequirement();
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            document.getElementById('transport-option').addEventListener('change', function() {
+                state.transportOption = this.value;
+                const vehicleSection = document.getElementById('vehicle-section');
+                const transportFeeDisplay = document.getElementById('transport-fee-display');
+                
+                if (this.value === 'include-transport') {
+                    vehicleSection.style.display = 'block';
+                    transportFeeDisplay.style.display = 'block';
+                    
+                    // Update transport fee if location is set
+                    if (state.pickupLocation && state.distance > 0) {
+                        updateTransportFee();
+                    }
+                } else {
+                    vehicleSection.style.display = 'none';
+                    transportFeeDisplay.style.display = 'none';
+                }
+                
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            document.getElementById('vehicle-type').addEventListener('change', function() {
+                state.vehicleType = this.value;
+                
+                // Update transport fee if needed
+                if (state.transportOption === 'include-transport' && state.distance > 0) {
+                    updateTransportFee();
+                }
+                
+                if (document.getElementById('calculation-result').style.display === 'block') {
+                    calculateTotal();
+                }
+            });
+
+            // Calculate button
+            document.getElementById('calculate-btn').addEventListener('click', function() {
+                calculateTotal();
+                document.getElementById('calculation-result').style.display = 'block';
+                document.getElementById('calculation-result').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Print and reset buttons
+            document.getElementById('print-invoice').addEventListener('click', function() {
+                const printContent = document.getElementById('calculation-result').innerHTML;
+                const originalContent = document.body.innerHTML;
+                
+                document.body.innerHTML = printContent;
+                window.print();
+                document.body.innerHTML = originalContent;
+            });
+
+            document.getElementById('new-calculation').addEventListener('click', resetCalculator);
+        }
+
+        // Reset calculator to default state
+        function resetCalculator() {
+            // Reset form values
+            document.getElementById('safari-type').value = 'full-day';
+            document.getElementById('visitor-type').value = 'foreigner';
+            document.getElementById('number-persons').value = '2';
+            document.getElementById('number-children').value = '0';
+            document.getElementById('transport-option').value = 'no-transport';
+            document.getElementById('vehicle-type').value = 'Premio';
+            document.getElementById('pickup-location').value = '';
+            
+            // Reset UI elements
+            document.getElementById('vehicle-section').style.display = 'none';
+            document.getElementById('transport-fee-display').style.display = 'none';
+            document.getElementById('distance-info').style.display = 'none';
+            document.getElementById('calculation-result').style.display = 'none';
+            
+            // Reset warnings
+            document.getElementById('adult-warning').style.display = 'none';
+            document.getElementById('child-warning').style.display = 'none';
+            document.getElementById('group-warning').classList.add('hidden');
+            
+            // Reset state
+            state = {
+                currency: 'LKR',
+                safariType: 'full-day',
+                visitorType: 'foreigner',
+                adults: 2,
+                children: 0,
+                transportOption: 'no-transport',
+                vehicleType: 'Premio',
+                pickupLocation: '',
+                distance: 0
+            };
+            
+            // Update jeep requirement
+            updateJeepRequirement();
+            scrollToHeader();
+        }
+
+        // Validate group size
+        function validateGroupSize() {
+            const totalPeople = state.adults + state.children;
+            const warning = document.getElementById('group-warning');
+            const warningMessage = document.getElementById('warning-message');
+            
+            if (totalPeople > 6) {
+                warning.classList.remove('hidden');
+                warningMessage.textContent = 'Maximum 6 people per safari jeep. Please adjust your group size.';
+            } else {
+                warning.classList.add('hidden');
+            }
+            
+            // Show individual warnings for large inputs
+            document.getElementById('adult-warning').style.display = state.adults > 6 ? 'block' : 'none';
+            document.getElementById('child-warning').style.display = state.children > 6 ? 'block' : 'none';
+        }
+
+        // Calculate the total price
+        function calculateTotal() {
+            const totalPeople = state.adults + state.children;
+            const jeepsRequired = Math.ceil(totalPeople / 6);
+            
+            // Update invoice summary
+            document.getElementById('result-type').textContent = 
+                state.safariType === 'full-day' ? 'Full Day Safari' : 'Half Day Safari';
+                
+            document.getElementById('result-duration').textContent = 
+                state.safariType === 'full-day' ? '12 hours (6am-6pm)' : '6 hours (6am-12pm)';
+                
+            document.getElementById('result-visitor').textContent = 
+                state.visitorType === 'foreigner' ? 'Foreign Tourist' : 'Local Tourist';
+                
+            document.getElementById('result-persons').textContent = state.adults;
+            document.getElementById('result-children').textContent = state.children;
+            document.getElementById('result-pickup').textContent = 
+                state.pickupLocation || 'Not specified';
+            document.getElementById('result-vehicle').textContent = 
+                state.transportOption === 'include-transport' ? state.vehicleType : 'Not selected';
+            document.getElementById('result-jeeps').textContent = jeepsRequired;
+            
+        
+            // Calculate costs
+            let safariCost = 0;
+            let entranceFees = 0;
+            let transportCost = 0;
+            
+            // Safari cost calculation
+            if (state.visitorType === 'foreigner') {
+                // Foreign tourist pricing (all-inclusive)
+                const prices = safariPrices[state.safariType].foreign;
+                const index = Math.min(totalPeople, 6) - 1;
+                safariCost = prices[index] * totalPeople;
+            } else {
+                // Local tourist pricing
+                safariCost = safariPrices[state.safariType].jeep * jeepsRequired;
+                entranceFees = 
+                    (state.adults * safariPrices[state.safariType].local.adult) + 
+                    (state.children * safariPrices[state.safariType].local.child);
+            }
+            
+            // Transport calculation
+            if (state.transportOption === 'include-transport' && state.distance > 0) {
+                // Use actual distance if available
+                const roundTripDistance = state.distance * 2;
+                const rate = transportRates[state.vehicleType];
+                transportCost = roundTripDistance * rate;
+                
+                // Update result distance display
+                document.getElementById('result-distance').textContent = `${roundTripDistance} km (round trip)`;
+            }
+            
+            // Calculate grand total
+            let grandTotal = state.visitorType === 'foreigner' ? safariCost : safariCost + entranceFees + transportCost;
+            
+            // Convert all amounts to selected currency for display
+            const convertAndFormat = (amount, originalCurrency) => {
+                const converted = convertCurrency(amount, originalCurrency);
+                return formatCurrency(converted, state.currency);
+            };
+            
+            // Update invoice table
+            updateInvoiceTable(totalPeople, jeepsRequired, safariCost, entranceFees, transportCost, convertAndFormat);
+            
+            // Display grand total
+            const grandTotalConverted = state.visitorType === 'foreigner' 
+                ? convertCurrency(grandTotal, 'USD') 
+                : convertCurrency(grandTotal, 'LKR');
+            
+            document.getElementById('grand-total').textContent = formatCurrency(grandTotalConverted, state.currency);
+        
+        }
+        // Update invoice table based on visitor type
+        function updateInvoiceTable(totalPeople, jeepsRequired, safariCost, entranceFees, transportCost, convertAndFormat) {
+            // For foreign tourists
+            document.getElementById('package-price-row').style.display = 
+                state.visitorType === 'foreigner' ? 'table-row' : 'none';
+                
+            // For local tourists
+            document.getElementById('safari-cab-row').style.display = 
+                state.visitorType === 'local' ? 'table-row' : 'none';
+            document.getElementById('entrance-fees-row').style.display = 
+                state.visitorType === 'local' ? 'table-row' : 'none';
+            document.getElementById('transport-row').style.display = 
+                state.transportOption === 'include-transport' && state.visitorType === 'local' && state.distance > 0 ? 'table-row' : 'none';
+                
+            // Update row values
+            if (state.visitorType === 'foreigner') {
+                const index = Math.min(totalPeople, 6) - 1;
+                const pricePerPerson = safariPrices[state.safariType].foreign[index];
+                
+                document.getElementById('package-persons').textContent = `${totalPeople} Person${totalPeople > 1 ? 's' : ''}`;
+                document.getElementById('package-unit-price').textContent = convertAndFormat(pricePerPerson, 'USD');
+                document.getElementById('package-total').textContent = convertAndFormat(safariCost, 'USD');
+            }
+            
+            if (state.visitorType === 'local') {
+                const jeepPrice = safariPrices[state.safariType].jeep;
+                const adultPrice = safariPrices[state.safariType].local.adult;
+                
+                // Safari cab
+                document.getElementById('safari-cab-quantity').textContent = `${jeepsRequired} jeep${jeepsRequired > 1 ? 's' : ''}`;
+                document.getElementById('safari-cab-price').textContent = convertAndFormat(jeepPrice, 'LKR');
+                document.getElementById('safari-cab-total').textContent = convertAndFormat(safariCost, 'LKR');
+                
+                // Entrance fees
+                document.getElementById('entrance-fees-quantity').textContent = 
+                    `${state.adults} Adult${state.adults > 1 ? 's' : ''}, ${state.children} Child${state.children !== 1 ? 'ren' : ''}`;
+                document.getElementById('entrance-fees-price').textContent = convertAndFormat(adultPrice, 'LKR');
+                document.getElementById('entrance-fees-total').textContent = convertAndFormat(entranceFees, 'LKR');
+            }
+            
+            // Transport cost (for locals)
+            if (state.transportOption === 'include-transport' && state.visitorType === 'local' && state.distance > 0) {
+                const perKmRate = transportRates[state.vehicleType];
+                const roundTripDistance = state.distance * 2;
+                
+                document.getElementById('transport-row-distance').textContent = `${roundTripDistance} km`;
+                document.getElementById('transport-row-unit-price').textContent = convertAndFormat(perKmRate, 'LKR') + '/km';
+                document.getElementById('transport-row-total').textContent = convertAndFormat(transportCost, 'LKR');
+            }
+        }
+        // Disable right-click context menu
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  // Optional: Disable F12, Ctrl+Shift+I (Inspect), Ctrl+U (View Source)
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  });
 </script>
 
-<script defer>
-    document.getElementById('calculation-result').classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-</script>
 </body>
 </html>
